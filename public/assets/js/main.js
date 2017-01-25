@@ -50,6 +50,7 @@ $('#btn-no').click(function(){
 //}
 
 $(document).ready(function(){
+	$('select').select2();
 	// Toggle minimize popup form
 	$('.popup-form .ion-minus-round').click(function(){
 		// If the form is not expanded expand it
