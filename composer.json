@@ -23,11 +23,6 @@
             "App\\": "app/"
         }
     },
-    "autoload-dev": {
-        "classmap": [
-            "tests/TestCase.php"
-        ]
-    },
     "scripts": {
         "post-update-cmd": [
             "php artisan optimize"
