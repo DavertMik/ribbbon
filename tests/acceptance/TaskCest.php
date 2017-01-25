@@ -25,7 +25,7 @@ class TaskCest
         $I->seeElement('.new-task');
         $I->seeElement('.lc-select-priority');
         $I->fillField('.new-task .first', 'This is important');
-        $I->selectOption('.new-task .lc-select-priority', 'high');
+        $I->selectizeOption('.new-task .lc-select-priority', 'high');
         $I->click('Save', '.new-task');
         $I->waitForElementNotVisible('.new-task');
         $I->see('Please fix that', '.task-list');
