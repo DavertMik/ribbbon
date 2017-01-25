@@ -17,4 +17,17 @@ class TaskCest
         $I->waitForElementNotVisible('.new-task');
         $I->see('Please fix that', '.task-list');
     }
+
+    public function changePriority(AcceptanceTester $I)
+    {
+        $I->amOnPage('/projects/2');
+        $I->click('New Task');
+        $I->seeElement('.new-task');
+        $I->seeElement('.lc-select-priority');
+        $I->fillField('.new-task .first', 'This is important');
+        $I->selectOption('.new-task .lc-select-priority', 'high');
+        $I->click('Save', '.new-task');
+        $I->waitForElementNotVisible('.new-task');
+        $I->see('Please fix that', '.task-list');
+    }
 }

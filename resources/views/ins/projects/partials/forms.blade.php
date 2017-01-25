@@ -75,7 +75,7 @@
             </div>
             <div class="col-xs-4">
                 <label>Priority:</label>
-                <select v-model="newTask.priority" class="form-control">
+                <select v-model="newTask.priority" class="form-control lc-select-priority">
                     <option>low</option>
                     <option selected>normal</option>
                     <option>medium</option>
