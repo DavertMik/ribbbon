@@ -1,5 +1,47 @@
 # Ribbbon
 
+
+## Installation
+
+```bash
+git clone git@github.com:davertmik/ribbbon.git
+cd ribbon
+composer install
+cp .env.example .env
+```
+
+edit .env file:
+
+```
+DB_HOST=localhost
+DB_DATABASE=ribbon
+DB_USERNAME=root
+DB_PASSWORD=
+
+CACHE_DRIVER=file
+SESSION_DRIVER=file
+QUEUE_DRIVER=sync
+
+MAIL_DRIVER=log
+MAIL_HOST=localhost
+MAIL_PORT=25
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+```
+
+run commands
+
+```bash
+echo "create database ribbon" | mysql -uroot
+php artisan migrate
+php artisan db:seed
+php artisan serve
+``` 
+
+---
+
+
 _V 2.2_
 
 
