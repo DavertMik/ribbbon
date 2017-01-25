@@ -18,6 +18,8 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.12/vue.js"></script>
+	<script src="https://cdn.jsdelivr.net/selectize/0.12.4/js/standalone/selectize.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/selectize/0.12.4/css/selectize.bootstrap3.css">
 	<script src="{{ asset('assets/js/ui.js') }}"></script>
 </head>
 <body>
