@@ -6,7 +6,7 @@ class TaskCest
         $I->logIn();
     }
 
-    public function createTask(AcceptanceTester $I)
+    public function createTask(AcceptanceTester $I, \Page\Acceptance\Project $project)
     {
         $I->amOnPage('/projects/2');
         $I->click('New Task');
@@ -16,6 +16,7 @@ class TaskCest
         $I->click('Save', '.new-task');
         $I->waitForElementNotVisible('.new-task');
         $I->see('Please fix that', '.task-list');
+        $project->taskFor('Please fix that');
     }
 
     public function changePriority(AcceptanceTester $I)
