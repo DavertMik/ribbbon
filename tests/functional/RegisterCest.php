@@ -8,6 +8,7 @@ class RegisterCest
 
     public function registerUserSuccessfully(FunctionalTester $I)
     {
+        $I->submitForm('', []);
         $I->fillField('fullName', 'Michael B');
         $I->fillField('email', 'davert@codeception.com');
         $I->fillField('password', '123456789');
@@ -15,6 +16,18 @@ class RegisterCest
         $I->see('Hud', 'h1');
         $I->seeRecord(\App\User::class, ['full_name' => 'Michael B', 'email' => 'davert@codeception.com']);
     }
+
+    public function registerWithoutPasswordFails(FunctionalTester $I)
+    {
+        $I->fillField('fullName', 'Michael B');
+        $I->fillField('email', 'davert@codeception.com');
+        $I->fillField('password', '');
+        $I->click('Register');
+        $I->see('Hud', 'h1');
+        $I->seeRecord(\App\User::class, ['full_name' => 'Michael B', 'email' => 'davert@codeception.com']);
+    }
+
+
     public function registerUserAndFail(FunctionalTester $I)
     {
         $I->fillField('fullName', 'Michael B');

@@ -23,6 +23,8 @@ class AcceptanceTester extends \Codeception\Actor
     public function logIn($user = null)
     {
         $this->amOnPage('/login');
+        $this->click('Confirm');
+//        $this->acceptPopup();
         $this->submitForm('.special-form form', [
             'email' => 'admin@admin.com',
             'password' => 'adminsadmins'

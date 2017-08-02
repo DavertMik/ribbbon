@@ -16,7 +16,7 @@ class TaskCest
         $I->click('Save', '.new-task');
         $I->waitForElementNotVisible('.new-task');
         $I->see('Please fix that', '.task-list');
-        $project->taskFor('Please fix that');
+//        $project->taskFor('Please fix that');
     }
 
     public function changePriority(AcceptanceTester $I)

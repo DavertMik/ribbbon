@@ -25,4 +25,23 @@
     <p>Don't have an account? <a href="{{ route('register') }}">register</a></p>
   </div>
 
+  <script type="text/javascript">
+      function showConfirm() {
+          window.open('http://google.com', '_blank', 'width=350,height=250');
+      }
+
+      function showAlert()
+      {
+          alert("Really?");
+      }
+  </script>
+
+  <div>
+      <button onclick="showConfirm()">Confirm</button>
+      <button onclick="showAlert()">Alert</button>
+
+
+      <div id="result"></div>
+  </div>
+
 @stop
