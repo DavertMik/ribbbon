@@ -56,7 +56,7 @@
             <span v-if="msg.error != null" class="status-msg error-msg">@{{ msg.error }}</span>
             <div class="col-xs-12 no-side-padding">
                 <label>Name:</label>
-                <input v-model="newTask.name" type="text" class="form-control first">
+                <input v-model="newTask.name" type="text" class="form-control first lc-task-title">
             </div>
             <div class="col-xs-4 no-side-padding">
                 <label>Weight:</label>
@@ -93,7 +93,7 @@
                 </select>
             </div>
             <label>Description:</label>
-            <textarea v-model="newTask.description" rows="5" class="form-control"></textarea>
+            <textarea v-model="newTask.description" rows="5" class="form-control lc-task-description"></textarea>
             <br>
             <span class="count pull-right">@{{ 250 - newTask.description.length }}</span>
         </form>

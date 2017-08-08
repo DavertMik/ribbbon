@@ -10,7 +10,7 @@
         "laravel/framework": "5.1.*"
     },
     "require-dev": {
-        "codeception/codeception": "^3.2"
+        "codeception/codeception": "2.3.0"
     },
     "autoload": {
         "classmap": [

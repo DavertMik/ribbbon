@@ -6,27 +6,36 @@ class TaskCest
         $I->logIn();
     }
 
-    public function createTask(AcceptanceTester $I, \Page\Acceptance\Project $project)
+    // tests
+    public function createAndDeleteTask(AcceptanceTester $I)
     {
+        $title = sq('task');
         $I->amOnPage('/projects/2');
         $I->click('New Task');
         $I->seeElement('.new-task');
-        $I->fillField('.new-task .first', 'Please fix that');
-        $I->fillField('.new-task textarea', 'This is very important task');
+        $I->fillField('.lc-task-title', $title);
+        $I->fillField('.lc-task-description', 'This is very important task');
         $I->click('Save', '.new-task');
         $I->waitForElementNotVisible('.new-task');
-        $I->see('Please fix that', '.task-list');
-//        $project->taskFor('Please fix that');
+        $I->waitForElement('.task-list>li');
+        $I->see($title, '.task-list');
+        $element = \Codeception\Util\Locator::contains('li',$title);
+        $I->moveMouseOver($element);
+        $I->click('.ion-close-round', $element);
+        $I->see('Are you sure you want to delete this task?');
+        $I->click('#confirm-btn');
+        $I->wait(2);
+        $I->dontSee($title);
     }
 
-    public function changePriority(AcceptanceTester $I)
+    public function selectOption(AcceptanceTester $I)
     {
         $I->amOnPage('/projects/2');
         $I->click('New Task');
         $I->seeElement('.new-task');
         $I->seeElement('.lc-select-priority');
         $I->fillField('.new-task .first', 'This is important');
-        $I->selectizeOption('.new-task .lc-select-priority', 'high');
+        $I->selectizeOption('.lc-select-priority', 'high');
         $I->click('Save', '.new-task');
         $I->waitForElementNotVisible('.new-task');
         $I->see('Please fix that', '.task-list');

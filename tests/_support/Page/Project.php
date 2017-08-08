@@ -1,5 +1,5 @@
 <?php
-namespace Page\Acceptance;
+namespace Page;
 
 class Project
 {
@@ -23,9 +23,9 @@ class Project
         $I->click('New Task');
         $I->fillField($this->newTaskTitle, $name);
         $I->fillField($this->newTaskDescription, $description);
-        if ($priority) $I->selectizeOption($this->newTaskPriority, 'high');
+        if ($priority) $I->selectizeOption($this->newTaskPriority, $priority);
         $I->click('Save', '.new-task');
-        $I->wait(2);
-
+        $I->waitForElementNotVisible('.new-task');
+        $I->waitForElement('.task-list>li');
     }
 }
