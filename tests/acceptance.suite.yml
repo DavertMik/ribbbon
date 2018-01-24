@@ -10,4 +10,6 @@ modules:
         - WebDriver:
             browser: chrome
             url: http://127.0.0.1:8000
+            capabilities:
+              enableVNC: true
         - \Helper\Acceptance

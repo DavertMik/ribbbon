@@ -1,6 +1,4 @@
 <?php
-
-
 /**
  * Inherited Methods
  * @method void wantToTest($text)
@@ -20,6 +18,19 @@ class AcceptanceTester extends \Codeception\Actor
 {
     use _generated\AcceptanceTesterActions;
 
+    public function login()
+    {
+        if ($this->loadSessionSnapshot('login')) {
+            return;
+        } // logged in
+        $this->amOnPage('/login');
+        $this->fillFieldSlow('Email', 'test@ribbbon.com');
+        $this->fillFieldSlow('Password', 'secret');
+        $this->click('Login');
+
+        // saving snapshot
+        $this->saveSessionSnapshot('login');
+    }
    /**
     * Define custom actions here
     */
@@ -28,4 +39,14 @@ class AcceptanceTester extends \Codeception\Actor
         $this->fillField($field, $value);
         $this->wait(0.5);
    }
+
+    public function selectizeOption($cssSelector, $value)
+    {
+        $this->executeJS('$("'.$cssSelector.'")[0].selectize.setValue("' . $value . '")');
+   }
+
+//    public function waitForNextTick()
+//    {
+//        $this->waitForJS()
+//    }
 }
