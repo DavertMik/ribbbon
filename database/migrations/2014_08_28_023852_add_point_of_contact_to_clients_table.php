@@ -14,7 +14,7 @@ class AddPointOfContactToClientsTable extends Migration {
 	{
 		Schema::table('clients', function(Blueprint $table)
 		{
-			$table->string('point_of_contact');
+			$table->string('point_of_contact')->nullable();
 		});
 	}
 

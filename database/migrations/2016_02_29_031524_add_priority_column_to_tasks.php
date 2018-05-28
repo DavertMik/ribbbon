@@ -13,7 +13,7 @@ class AddPriorityColumnToTasks extends Migration
     public function up()
     {
         Schema::table('tasks', function (Blueprint $table) {
-            $table->string('priority');
+            $table->string('priority')->nullable();
         });
     }
 

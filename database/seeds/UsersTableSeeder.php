@@ -3,6 +3,7 @@
 // Composer: "fzaninotto/faker": "v1.3.0"
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
+use Carbon\Carbon;
 
 class UsersTableSeeder extends Seeder {
 
@@ -10,7 +11,7 @@ class UsersTableSeeder extends Seeder {
 	{
 		$faker = Faker::create();
 
-		DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+		// DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
 		DB::table('users')->truncate();
 		DB::table('users')->insert(
@@ -19,9 +20,11 @@ class UsersTableSeeder extends Seeder {
 		    	'email' 			=> 	'test@ribbbon.com',
 		    	'password'			=>	Hash::make('secret'),
 		    	'tasks_created' 	=> 	1,
+		    	'created_at' => \Carbon\Carbon::now(),
+		    	'updated_at' => \Carbon\Carbon::now()
 		    	)
 		);
 
-		DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+		// DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 	}
 }

@@ -10,7 +10,7 @@ class TasksTableSeeder extends Seeder {
 	{
 		$faker = Faker::create();
 
-		DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+		// DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
 		DB::table('tasks')->truncate();
 		DB::table('tasks')->insert(
@@ -19,10 +19,13 @@ class TasksTableSeeder extends Seeder {
 		    	'project_id' 		=>	1,
 		    	'name'				=>	"First Task",
 		    	'state' 			=> 	"incomplete",
-		    	'weight'			=>	2,
+		    	'weight'			=>	2,		    	
+		    	'created_at' => \Carbon\Carbon::now(),
+		    	'updated_at' => \Carbon\Carbon::now()
+
 		    	)
 		);
 
-		DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+		// DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 	}
 }

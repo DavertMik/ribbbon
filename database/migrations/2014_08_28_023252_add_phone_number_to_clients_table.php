@@ -14,7 +14,7 @@ class AddPhoneNumberToClientsTable extends Migration {
 	{
 		Schema::table('clients', function(Blueprint $table)
 		{
-			$table->string('phone_number',20);
+			$table->string('phone_number',20)->nullable();
 		});
 	}
 

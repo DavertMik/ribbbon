@@ -13,7 +13,7 @@ class AddExtraTaskColumns extends Migration
     public function up()
     {
         Schema::table('tasks', function (Blueprint $table) {
-            $table->string('due_date');
+            $table->string('due_date')->nullable();
         });
     }
 

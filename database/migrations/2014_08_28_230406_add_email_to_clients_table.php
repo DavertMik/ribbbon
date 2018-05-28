@@ -14,7 +14,7 @@ class AddEmailToClientsTable extends Migration {
 	{
 		Schema::table('clients', function(Blueprint $table)
 		{
-			$table->string('email');
+			$table->string('email')->nullable();
 		});
 	}
 

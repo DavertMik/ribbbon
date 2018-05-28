@@ -15,7 +15,7 @@ class ProjectsTableSeeder extends Seeder {
 	{
 		$faker = Faker::create();
 
-		DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+		// DB::statement('SET FOREIGN_KEY_CHECKS=0;');
 
 		DB::table('projects')->truncate();
 
@@ -24,10 +24,13 @@ class ProjectsTableSeeder extends Seeder {
 		    	'name' 				=>	"First Project",
 		    	'user_id' 			=> 	1,
 		    	'client_id'			=>	1,
+		    	'description'  => '',
+		    	'created_at' => \Carbon\Carbon::now(),
+		    	'updated_at' => \Carbon\Carbon::now()		    	
 		    	)
 		);
 
-		DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+		// DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 	}
 
 }

@@ -13,8 +13,8 @@ class AddDescriptionAndWishColumnsToTasks extends Migration
     public function up()
     {
         Schema::table('tasks', function (Blueprint $table) {
-            $table->string('description');            
-            $table->boolean('wish');
+            $table->string('description')->nullable();            
+            $table->boolean('wish')->nullable();
         });
     }
 

@@ -14,10 +14,10 @@ class AddUrlsToProjectsTable extends Migration {
 	{
 		Schema::table('projects', function(Blueprint $table)
 		{
-			$table->string('production');
-			$table->string('stage');
-			$table->string('dev');
-			$table->string('github');
+			$table->string('production')->nullable();
+			$table->string('stage')->nullable();
+			$table->string('dev')->nullable();
+			$table->string('github')->nullable();
 		});
 	}
 
